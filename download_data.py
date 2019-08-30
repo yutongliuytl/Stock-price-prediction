@@ -7,7 +7,7 @@ file = open('stock_list.txt', 'r', encoding='utf-8-sig')
 # the file should only have one line with all tickers
 for line in file:
     # SHOULD only iterate once.
-    data = [n for n in line[:-1].split(',')]
+    data = [n for n in line.split(',')]
 
 folder_name = 'stocks_data'
 for ticker in data:
