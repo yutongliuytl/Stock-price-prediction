@@ -4,7 +4,9 @@ import os
 import csv
 
 file = open('stock_list.txt', 'r', encoding='utf-8-sig')
+# the file should only have one line with all tickers
 for line in file:
+    # SHOULD only iterate once.
     data = [n for n in line[:-1].split(',')]
 
 folder_name = 'stocks_data'
@@ -16,5 +18,5 @@ for ticker in data:
         df = web.DataReader(ticker, 'yahoo', start, end)
         df.to_csv('{}/{}.csv'.format(folder_name, ticker))
     else:
-        # update the ticker here
+        # todo: update the ticker here
         print('Already have {}'.format(ticker))
